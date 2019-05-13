@@ -6,7 +6,7 @@ use Mix.Config
 config :can_chat_ui, :viewport, %{
   name: :main_viewport,
   size: {128, 64},
-  default_scene: {CanChatUI.Scene.Home, nil},
+  default_scene: {CanChatUI.Scene.Splash, nil},
   drivers: [
     %{
       module: Scenic.Driver.Glfw,
@@ -15,6 +15,10 @@ config :can_chat_ui, :viewport, %{
     }
   ]
 }
+
+config :phoenix_client, :socket,
+  url: "ws://mz-mbpsg.local:4000/socket/websocket",
+  reconnect_interval: 1_000
 
 # It is also possible to import configuration files, relative to this
 # directory. For example, you can emulate configuration per environment
